@@ -54,6 +54,26 @@ namespace Healz.Controllers
         {
             return View();
         }
+        public IActionResult PrivacySetting()
+        {
+            return View();
+        }
+        public IActionResult securitysettings()
+        {
+            return View();
+        }
+       public IActionResult upgradepackage()
+        {
+            return View();
+        }
+        public IActionResult invoices()
+        {
+            return View();
+        }   public IActionResult favoritlisting()
+        {
+            return View();
+        }
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -22,7 +22,34 @@ namespace Healz.Controllers
         {
             return View();
         }
-
+        public IActionResult Doctors()
+        {
+            return View();
+        }
+        public IActionResult Hospitals()
+        {
+            return View();
+        }
+        public IActionResult Spas()
+        {
+            return View();
+        }
+        public IActionResult Pharmacies()
+        {
+            return View();
+        }
+        public IActionResult Labs()
+        {
+            return View();
+        }
+        public IActionResult Fitness()
+        {
+            return View();
+        }
+        public IActionResult Clinics()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

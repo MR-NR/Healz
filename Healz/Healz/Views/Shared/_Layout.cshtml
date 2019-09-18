@@ -69,7 +69,7 @@
                     <div class="col-sm-12 col-xs-12">
                         <strong class="tg-logo">
                            
-                            <a href="@Url.Action("Index", "Home")"><img src="~/images/logo.png" alt="image description"></a>
+                            <a  asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" alt="image description"></a>
                         </strong>
                         <div class="tg-navigationarea">
                             <nav id="tg-nav" class="tg-nav">
@@ -86,17 +86,17 @@
                                         <li class="tg-hasdropdown">
                                             <a href="#">Categories</a>
                                             <ul class="tg-dropdownmenu">
-                                                <li><a href="@Url.Action("Doctors","Home")">Doctors</a></li>
-                                                <li><a href="@Url.Action("Hospitals","Home")">Hospitals</a></li>
-                                                <li><a href="@Url.Action("Spas","Home")">Spas</a></li>
-                                                <li><a href="@Url.Action("Pharmacies","Home")">Pharmacies</a></li>
-                                                <li><a href="@Url.Action("Labs","Home")">Labs</a></li>
-                                                <li><a href="@Url.Action("Fitness","Home")">Fitness</a></li>
-                                                <li><a href="@Url.Action("Clinics","Home")">Clinics</a></li>
+                                                <li><a  asp-action="Doctors"  asp-controller="Home">Doctors</a></li>
+                                                <li><a  asp-action="Hospitals"  asp-controller="Home">Hospitals</a></li>
+                                                <li><a  asp-action="Spas"  asp-controller="Home">Spas</a></li>
+                                                <li><a  asp-action="Pharmacies"  asp-controller="Home">Pharmacies</a></li>
+                                                <li><a  asp-action="Labs"  asp-controller="Home">Labs</a></li>
+                                                <li><a asp-action="Fitness"  asp-controller="Home">Fitness</a></li>
+                                                <li><a asp-action="Clinics"  asp-controller="Home">Clinics</a></li>
                                             </ul>
                                         </li>
-                                        <li>@Html.ActionLink("About","About","Home","")</li>
-                                        <li><a href="@Url.Action("HowItWorks","Home")">How It Works?</a></li>
+                                        <li>@Html.ActionLink("About","About","Home","") </li>
+                                        <li><a asp-action="HowItWorks" asp-controller="Home" >How It Works?</a></li>
                                         <li class="tg-hasdropdown">
                                             <a href="javascript:void(0);">
                                                 <i class="hidden-xs fa fa-navicon"></i>
@@ -129,7 +129,7 @@
                                         <div class="dropdown-menu tg-dropdownbox tg-usermenu">
                                             <ul>
                                                 <li>
-                                                    <a href="dashboard.html">
+                                                    <a >
                                                         <i class="fa fa-line-chart"></i>
                                                         <span>Insights</span>
                                                     </a>
@@ -171,31 +171,31 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-favoritlisting.html">
+                                                    <a asp-controller="Home" asp-action="favoritlisting">
                                                         <i class="fa fa-heart"></i>
                                                         <span>Favourite Listings</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-invoices.html">
+                                                    <a asp-action="invoices" asp-controller="Home">
                                                         <i class="fa fa-clone"></i>
                                                         <span>Invoices</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-upgradepackage.html">
+                                                    <a  asp-action="upgradepackage" asp-controller="Home">
                                                         <i class="fa fa-arrow-up"></i>
                                                         <span>Update Package</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-securitysettings.html">
+                                                    <a asp-action="securitysettings" asp-controller="Home">
                                                         <i class="fa fa-gears"></i>
                                                         <span>Security Settings</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-privacy-settings.html">
+                                                    <a asp-action="PrivacySetting" asp-controller="Home">
                                                         <i class="fa fa-eye"></i>
                                                         <span>Privacy Settings</span>
                                                     </a>

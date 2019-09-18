@@ -103,13 +103,21 @@
                                                 <span class="hidden-lg hidden-md hidden-sm">Pages</span>
                                             </a>
                                             <ul class="tg-dropdownmenu">
-                                                <li><a href="blogpostlist.html">Blog List</a></li>
+                                                @*<li><a href="blogpostlist.html">Blog List</a></li>
                                                 <li><a href="blogpostgrid.html">Blog Grid</a></li>
                                                 <li><a href="blogpostdetail.html">Blog Detail</a></li>
                                                 <li><a href="doctor-overview-detail.html">Doctor Detail</a></li>
                                                 <li><a href="404.html">404</a></li>
                                                 <li><a href="commingsoon.html">Comming Soon</a></li>
-                                                <li><a href="signin-signup.html">Signin-Signup</a></li>
+                                                <li><a href="signin-signup.html">Signin-Signup</a></li>*@
+
+                                                <li><a href="@Url.Action("blogpostlist","Home")">Blog List</a></li>
+                                                <li><a href="@Url.Action("blogpostgrid","Home")">Blog Grid</a></li>
+                                                <li><a href="@Url.Action("blogpostdetail","Home")">Blog Detail</a></li>
+                                                <li><a href="@Url.Action("E_404","Home")">404</a></li>
+                                                <li><a href="@Url.Action("commingsoon","Home")">Comming Soon</a></li>
+                                                <li><a href="@Url.Action("signin_signup","Home")">Signin-Signup</a></li>
+                                               
                                             </ul>
                                         </li>
                                     </ul>

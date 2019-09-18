@@ -60,5 +60,36 @@ namespace Healz.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+     
+       
+        public ActionResult blogpostlist()
+        {
+            return View();
+        }
+        public ActionResult blogpostgrid()
+        {
+            return View();
+        }
+        public ActionResult blogpostdetail()
+        {
+            return View();
+        }
+        public ActionResult doctor_overview_detail()
+        {
+            return View();
+        }
+        public ActionResult E_404()
+        {
+            return View();
+        }
+        public ActionResult commingsoon()
+        {
+            return PartialView();
+        }
+        public ActionResult signin_signup()
+        {
+            return View();
+        }
+
     }
 }

@@ -14,12 +14,11 @@ namespace Healz.Controllers
         {
             return View();
         }
-        public IActionResult searchresultv1()
+
+        public IActionResult Privacy()
         {
             return View();
         }
-
-       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

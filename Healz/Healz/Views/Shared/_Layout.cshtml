@@ -68,7 +68,8 @@
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
                         <strong class="tg-logo">
-                            <a href="index.html"><img src="~/images/logo.png" alt="image description"></a>
+                           
+                            <a href="@Url.Action("Index", "Home")"><img src="~/images/logo.png" alt="image description"></a>
                         </strong>
                         <div class="tg-navigationarea">
                             <nav id="tg-nav" class="tg-nav">
@@ -94,7 +95,7 @@
                                                 <li><a href="searchresult-v1.html">Clinics</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="aboutus.html">About</a></li>
+                                        <li>@Html.ActionLink("About","About","Home","")</li>
                                         <li><a href="how-its-works.html">How It Works?</a></li>
                                         <li class="tg-hasdropdown">
                                             <a href="javascript:void(0);">
@@ -218,7 +219,7 @@
         <!--************************************
                 Header End
         *************************************-->
-        <!--************************************
+        <!--************************************-->
 
         @RenderBody()
 

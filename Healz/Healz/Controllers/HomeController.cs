@@ -54,6 +54,7 @@ namespace Healz.Controllers
         {
             return View();
         }
+<<<<<<< HEAD
         public IActionResult Insights()
         {
             return View();
@@ -76,6 +77,28 @@ namespace Healz.Controllers
         {
             return View();
         }
+=======
+        public IActionResult PrivacySetting()
+        {
+            return View();
+        }
+        public IActionResult securitysettings()
+        {
+            return View();
+        }
+       public IActionResult upgradepackage()
+        {
+            return View();
+        }
+        public IActionResult invoices()
+        {
+            return View();
+        }   public IActionResult favoritlisting()
+        {
+            return View();
+        }
+      
+>>>>>>> 01eefbab298d4870b9f30522af3a9325c3d630c7
 
         public IActionResult Appointments()
         {
@@ -90,5 +113,36 @@ namespace Healz.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+     
+       
+        public ActionResult blogpostlist()
+        {
+            return View();
+        }
+        public ActionResult blogpostgrid()
+        {
+            return View();
+        }
+        public ActionResult blogpostdetail()
+        {
+            return View();
+        }
+        public ActionResult doctor_overview_detail()
+        {
+            return View();
+        }
+        public ActionResult E_404()
+        {
+            return View();
+        }
+        public ActionResult commingsoon()
+        {
+            return PartialView();
+        }
+        public ActionResult signin_signup()
+        {
+            return View();
+        }
+
     }
 }

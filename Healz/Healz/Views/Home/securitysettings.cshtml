@@ -1,0 +1,382 @@
+﻿
+@{
+    ViewData["Title"] = "securitysettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!--************************************
+            Main Start
+    *************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <div class="container">
+        <div class="row">
+            <div id="tg-content" class="tg-content tg-dashboard">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 pull-left">
+                    <div class="tg-widgetdashboard">
+                        <div class="tg-widgetprofile">
+                            <figure class="tg-directpostimg">
+                                <a href="#"><img src="~/images/thumbnails/img-20.jpg" alt="image description"></a>
+                                <figcaption>
+                                    <a class="tg-usericon tg-iconfeatured" href="#">
+                                        <em class="tg-usericonholder">
+                                            <i class="fa fa-bolt"></i>
+                                            <span>featured</span>
+                                        </em>
+                                    </a>
+                                    <a class="tg-usericon tg-iconvarified" href="#">
+                                        <em class="tg-usericonholder">
+                                            <i class="fa fa-shield"></i>
+                                            <span>varified</span>
+                                        </em>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                            <div class="tg-directposthead">
+                                <h3><a href="#">Dr. Steve Northrop</a></h3>
+                                <div class="tg-subjects">MDS - Paedodontics &amp; Preventive Dentistry</div>
+                                <ul class="tg-metadata">
+                                    <li><span class="tg-stars"><span></span></span></li>
+                                    <li><a href="#"><i class="fa fa-thumbs-o-up"></i> 99% (1009 votes)</a></li>
+                                </ul>
+                            </div>
+                            <a class="tg-btn tg-btn-lg" href="#">Edit Profile</a>
+                        </div>
+                        <nav id="tg-dashboardnav" class="tg-dashboardnav">
+                            <ul>
+                                <li>
+                                    <a href="dashboard.html">
+                                        <i class="fa fa-line-chart"></i>
+                                        <span>Insights</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-badgepopup.html">
+                                        <i class="fa fa-line-chart"></i>
+                                        <span>Insights two</span>
+                                    </a>
+                                </li>
+                                <li class="tg-warningmessage">
+                                    <a href="dashboard-profilesetting.html">
+                                        <i class="fa fa-user"></i>
+                                        <span>Profile Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-jobslocations.html">
+                                        <i class="fa fa-location-arrow"></i>
+                                        <span>Job Locations</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-privatemessages.html">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <span>Private Messages</span>
+                                    </a>
+                                </li>
+                                <li class="tg-successmessage">
+                                    <a href="dashboard-appointments.html">
+                                        <i class="fa fa-calendar-check-o"></i>
+                                        <span>Appointments</span>
+                                    </a>
+                                </li>
+                                <li class="tg-errormessage">
+                                    <a href="dashboard-appoinmentsetting.html">
+                                        <i class="fa fa-gear"></i>
+                                        <span>Appointment Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-favoritlisting.html">
+                                        <i class="fa fa-heart"></i>
+                                        <span>Favourite Listings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-invoices.html">
+                                        <i class="fa fa-clone"></i>
+                                        <span>Invoices</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-upgradepackage.html">
+                                        <i class="fa fa-arrow-up"></i>
+                                        <span>Update Package</span>
+                                    </a>
+                                </li>
+                                <li class="tg-active">
+                                    <a href="dashboard-securitysettings.html">
+                                        <i class="fa fa-gears"></i>
+                                        <span>Security Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="dashboard-privacy-settings.html">
+                                        <i class="fa fa-eye"></i>
+                                        <span>Privacy Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tg-widgetdashboard">
+                        <div class="tg-dashboardnotification tg-pkgexpirey"><span>13 days</span>silver package Expire in</div>
+                    </div>
+                    <div class="tg-widgetdashboard">
+                        <div class="tg-banneradd">
+                            <figure><a href="#"><img src="~/images/placeholder/img-01.jpg" alt="image description"></a></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 pull-right">
+                    <div class="tg-dashboardsecuritysettings">
+                        <div class="tg-dashboardbox">
+                            <div class="tg-dashboardboxtitle">
+                                <h2>Change Password</h2>
+                            </div>
+                            <div class="tg-box tg-changepassword">
+                                <div class="row tg-rowmargin">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <input type="password" name="currentpassword" class="form-control" placeholder="Current Password *">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <input type="password" name="mewpassword" class="form-control" placeholder="New Password *">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <input type="password" name="retypepassword" class="form-control" placeholder="Retype Password *">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-6 col-xs-12 tg-columnpadding">
+                                        <button class="tg-btn" type="submit">Change Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tg-dashboardbox">
+                            <div class="tg-dashboardboxtitle">
+                                <h2>Deactivate Account</h2>
+                            </div>
+                            <div class="tg-description">
+                                <p>Consectetur adipisicing elit eiusmod ipor incididunt utreiat dolorena aliqua minim veniam ullamcoaoris nisi ut aliquip exeao consuataui te irure dolor in reprehenderit aperiam eaque ipsa quae ab illo inventore.</p>
+                            </div>
+                            <div class="tg-box tg-deactivateaccount">
+                                <div class="row tg-rowmargin">
+                                    <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <input type="password" name="currentpassword" class="form-control" placeholder="Current Password *">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <input type="password" name="mewpassword" class="form-control" placeholder="Retype Password *">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 tg-columnpadding">
+                                        <div class="form-group tg-formgroup">
+                                            <textarea placeholder="Why Leaving Us?"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                        <button class="tg-btn" type="submit">Deactivate now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--************************************
+        Main End
+*************************************-->
+<!--************************************
+            Light Box Start
+*************************************-->
+<div class="modal tg-modal tg-addcompany fade" id="tg-addcompany" tabindex="-1" role="dialog">
+    <div class="modal-dialog tg-modaldialog">
+        <div class="modal-content tg-modalcontent">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h2>Add Demo Company</h2>
+            <form class="tg-formtheme tg-formaddcompany">
+                <fieldset>
+                    <div class="row tg-rowmargin">
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="companytitle" class="form-control" placeholder="Company Title">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="companysubtitle" class="form-control" placeholder="Company Subtitle">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <textarea class="form-control" name="companydescription" placeholder="Company Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="yourfeepervisit" class="form-control" placeholder="Your Fee Per Visit">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="yourvoice" class="form-control" placeholder="Your Voice">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-select">
+                                    <select>
+                                        <option>Monday</option>
+                                        <option>Monday</option>
+                                        <option>Monday</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-select">
+                                    <select>
+                                        <option>Sunday</option>
+                                        <option>Sunday</option>
+                                        <option>Sunday</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-inputicon tg-calendaricon"><input type="text" name="starttime" class="form-control" placeholder="Start Time"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-inputicon tg-calendaricon"><input type="text" name="endtime" class="form-control" placeholder="End Time"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12 tg-columnpadding">
+                            <button class="tg-btn tg-btn-lg" type="submit">submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<!--************************************
+            Light Box End
+*************************************-->
+<!--************************************
+            Light Box Start
+*************************************-->
+<div class="modal tg-modal tg-addjobdetailinfo fade" id="tg-addjobdetailinfo" tabindex="-1" role="dialog">
+    <div class="modal-dialog tg-modaldialog">
+        <div class="modal-content tg-modalcontent">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+            <h2>Fill Up Important Details</h2>
+            <div class="tg-directpost">
+                <figure class="tg-directpostimg">
+                    <a href="#"><img src="images/directpost/img-01.jpg" alt="image description"></a>
+                    <figcaption>
+                        <a class="tg-usericon tg-iconfeatured" href="#">
+                            <em class="tg-usericonholder">
+                                <i class="fa fa-bolt"></i>
+                                <span>featured</span>
+                            </em>
+                        </a>
+                        <a class="tg-usericon tg-iconvarified" href="#">
+                            <em class="tg-usericonholder">
+                                <i class="fa fa-shield"></i>
+                                <span>varified</span>
+                            </em>
+                        </a>
+                    </figcaption>
+                </figure>
+                <div class="tg-directinfo">
+                    <div class="tg-directposthead">
+                        <h3><a href="#">Life Saver Pharmacy</a></h3>
+                        <div class="tg-subjects">Local Pharmaceutical Council (LPhC)</div>
+                        <ul class="tg-metadata">
+                            <li><span class="tg-stars"><span></span></span></li>
+                            <li><a href="#"><i class="fa fa-heart tg-like"></i></a></li>
+                            <li><a href="#"><i class="fa fa-thumbs-o-up"></i> 99% (1009 votes)</a></li>
+                        </ul>
+                    </div>
+                    <div class="tg-description" style="max-height: none;">
+                        <p>Consectetur adipisicing elit eiusmod tempor iidunt utabor dolore eiusmod tempor iidunt.</p>
+                    </div>
+                </div>
+            </div>
+            <form class="tg-formtheme tg-formaddcompany">
+                <fieldset>
+                    <div class="row tg-rowmargin">
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="yourfeepervisit" class="form-control" placeholder="Your Fee Per Visit">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <input type="text" name="yourvoice" class="form-control" placeholder="Your Voice">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-select">
+                                    <select>
+                                        <option>Monday</option>
+                                        <option>Monday</option>
+                                        <option>Monday</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-select">
+                                    <select>
+                                        <option>Sunday</option>
+                                        <option>Sunday</option>
+                                        <option>Sunday</option>
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-inputicon tg-calendaricon"><input type="text" name="starttime" class="form-control" placeholder="Start Time"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                            <div class="form-group tg-formgroup">
+                                <span class="tg-inputicon tg-calendaricon"><input type="text" name="endtime" class="form-control" placeholder="End Time"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12 tg-columnpadding">
+                            <button class="tg-btn tg-btn-lg" type="submit">submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<!--************************************
+            Light Box End
+*************************************-->

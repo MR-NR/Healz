@@ -129,43 +129,43 @@
                                         <div class="dropdown-menu tg-dropdownbox tg-usermenu">
                                             <ul>
                                                 <li>
-                                                    <a href="dashboard.html">
+                                                    <a href="@Url.Action("Insights","Home")">
                                                         <i class="fa fa-line-chart"></i>
                                                         <span>Insights</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-badgepopup.html">
+                                                    <a href="@Url.Action("InsightsTwo","Home")">
                                                         <i class="fa fa-line-chart"></i>
                                                         <span>Insights-Two</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-profilesetting.html">
+                                                    <a href="@Url.Action("ProfileSettings", "Home")">
                                                         <i class="fa fa-user"></i>
                                                         <span>Profile settings</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-jobslocations.html">
+                                                    <a href="@Url.Action("JobLocations", "Home")">
                                                         <i class="fa fa-location-arrow"></i>
                                                         <span>Job Locations</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-privatemessages.html">
+                                                    <a href="@Url.Action("PrivateMasseges", "Home")">
                                                         <i class="fa fa-envelope-o"></i>
                                                         <span>Private Messages</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-appointments.html">
+                                                    <a href="@Url.Action("Appointments", "Home")">
                                                         <i class="fa fa-calendar-check-o"></i>
                                                         <span>Appointments</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard-appoinmentsetting.html">
+                                                    <a href="@Url.Action("Appoinmentsetting", "Home")">
                                                         <i class="fa fa-gear"></i>
                                                         <span>Appointment Settings</span>
                                                     </a>
@@ -646,6 +646,7 @@
             </div>
         </div>
     </div>
+    @RenderSection("Scripts",required:false)
     <!--************************************
                 Light Box End
     *************************************-->

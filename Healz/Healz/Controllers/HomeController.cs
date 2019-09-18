@@ -54,7 +54,37 @@ namespace Healz.Controllers
         {
             return View();
         }
+        public IActionResult Insights()
+        {
+            return View();
+        }
+        public IActionResult InsightsTwo()
+        {
+            return View();
+        }
+        public IActionResult ProfileSettings()
+        {
+            return View();
+        }
+        
+        public IActionResult JobLocations()
+        {
+            return View();
+        }
 
+        public IActionResult PrivateMasseges()
+        {
+            return View();
+        }
+
+        public IActionResult Appointments()
+        {
+            return View();
+        }
+        public IActionResult Appoinmentsetting()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

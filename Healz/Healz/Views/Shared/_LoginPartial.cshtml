@@ -2,7 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
+
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -20,7 +20,105 @@ else
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link text-dark " asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
-</ul>
+
+@*<div class="tg-admin">
+    <a class="tg-btn" href="#">Become A Member</a>
+    <div class="tg-user">
+        <div class="tg-dropdown">
+            <figure class="tg-adminpic">
+                <span class="tg-dashboardbadge">3</span>
+                <a href="dashboard.html"><img src="~/images/icons/icon-41.png" alt="Img"></a>
+            </figure>
+            <a href="javascript:void(0);" class="tg-usermenu tg-btndropdown">
+                <em>howdy, Anjela doe!</em>
+            </a>
+            <div class="dropdown-menu tg-dropdownbox tg-usermenu">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Insights","Home")">
+
+                            <a>
+                                <i class="fa fa-line-chart"></i>
+                                <span>Insights</span>
+                            </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("InsightsTwo","Home")">
+                            <i class="fa fa-line-chart"></i>
+                            <span>Insights-Two</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ProfileSettings", "Home")">
+                            <i class="fa fa-user"></i>
+                            <span>Profile settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("JobLocations", "Home")">
+                            <i class="fa fa-location-arrow"></i>
+                            <span>Job Locations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("PrivateMasseges", "Home")">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>Private Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Appointments", "Home")">
+                            <i class="fa fa-calendar-check-o"></i>
+                            <span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Appoinmentsetting", "Home")">
+                            <i class="fa fa-gear"></i>
+                            <span>Appointment Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="favoritlisting">
+                            <i class="fa fa-heart"></i>
+                            <span>Favourite Listings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="invoices" asp-controller="Home">
+                            <i class="fa fa-clone"></i>
+                            <span>Invoices</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="upgradepackage" asp-controller="Home">
+                            <i class="fa fa-arrow-up"></i>
+                            <span>Update Package</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="securitysettings" asp-controller="Home">
+                            <i class="fa fa-gears"></i>
+                            <span>Security Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="PrivacySetting" asp-controller="Home">
+                            <i class="fa fa-eye"></i>
+                            <span>Privacy Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-sign-out"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>*@

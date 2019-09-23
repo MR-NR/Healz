@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!doctype html>
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -68,8 +71,8 @@
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
                         <strong class="tg-logo">
-                           
-                            <a  asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" alt="image description"></a>
+
+                            <a asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" alt="image description"></a>
                         </strong>
                         <div class="tg-navigationarea">
                             <nav id="tg-nav" class="tg-nav">
@@ -86,17 +89,17 @@
                                         <li class="tg-hasdropdown">
                                             <a href="#">Categories</a>
                                             <ul class="tg-dropdownmenu">
-                                                <li><a  asp-action="Doctors"  asp-controller="Home">Doctors</a></li>
-                                                <li><a  asp-action="Hospitals"  asp-controller="Home">Hospitals</a></li>
-                                                <li><a  asp-action="Spas"  asp-controller="Home">Spas</a></li>
-                                                <li><a  asp-action="Pharmacies"  asp-controller="Home">Pharmacies</a></li>
-                                                <li><a  asp-action="Labs"  asp-controller="Home">Labs</a></li>
-                                                <li><a asp-action="Fitness"  asp-controller="Home">Fitness</a></li>
-                                                <li><a asp-action="Clinics"  asp-controller="Home">Clinics</a></li>
+                                                <li><a asp-action="Doctors" asp-controller="Home">Doctors</a></li>
+                                                <li><a asp-action="Hospitals" asp-controller="Home">Hospitals</a></li>
+                                                <li><a asp-action="Spas" asp-controller="Home">Spas</a></li>
+                                                <li><a asp-action="Pharmacies" asp-controller="Home">Pharmacies</a></li>
+                                                <li><a asp-action="Labs" asp-controller="Home">Labs</a></li>
+                                                <li><a asp-action="Fitness" asp-controller="Home">Fitness</a></li>
+                                                <li><a asp-action="Clinics" asp-controller="Home">Clinics</a></li>
                                             </ul>
                                         </li>
-                                        <li>@Html.ActionLink("About","About","Home","") </li>
-                                        <li><a asp-action="HowItWorks" asp-controller="Home" >How It Works?</a></li>
+                                        <li>@Html.ActionLink("About", "About", "Home", "") </li>
+                                        <li><a asp-action="HowItWorks" asp-controller="Home">How It Works?</a></li>
                                         <li class="tg-hasdropdown">
                                             <a href="javascript:void(0);">
                                                 <i class="hidden-xs fa fa-navicon"></i>
@@ -104,12 +107,12 @@
                                             </a>
                                             <ul class="tg-dropdownmenu">
                                                 @*<li><a href="blogpostlist.html">Blog List</a></li>
-                                                <li><a href="blogpostgrid.html">Blog Grid</a></li>
-                                                <li><a href="blogpostdetail.html">Blog Detail</a></li>
-                                                <li><a href="doctor-overview-detail.html">Doctor Detail</a></li>
-                                                <li><a href="404.html">404</a></li>
-                                                <li><a href="commingsoon.html">Comming Soon</a></li>
-                                                <li><a href="signin-signup.html">Signin-Signup</a></li>*@
+                <li><a href="blogpostgrid.html">Blog Grid</a></li>
+                <li><a href="blogpostdetail.html">Blog Detail</a></li>
+                <li><a href="doctor-overview-detail.html">Doctor Detail</a></li>
+                <li><a href="404.html">404</a></li>
+                <li><a href="commingsoon.html">Comming Soon</a></li>
+                <li><a href="signin-signup.html">Signin-Signup</a></li>*@
 
                                                 <li><a href="@Url.Action("blogpostlist","Home")">Blog List</a></li>
                                                 <li><a href="@Url.Action("blogpostgrid","Home")">Blog Grid</a></li>
@@ -117,110 +120,39 @@
                                                 <li><a href="@Url.Action("E_404","Home")">404</a></li>
                                                 <li><a href="@Url.Action("commingsoon","Home")">Comming Soon</a></li>
                                                 <li><a href="@Url.Action("signin_signup","Home")">Signin-Signup</a></li>
-                                               
+
                                             </ul>
+
                                         </li>
+                                        <partial name="_LoginPartial" />
+                                        <!--=======================================================-->
+                                        @*@if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }*@
+                                        <!--========================================================-->
                                     </ul>
                                 </div>
                             </nav>
-                            <div class="tg-admin">
-                                <a class="tg-btn" href="#">Become A Member</a>
-                                <div class="tg-user">
-                                    <div class="tg-dropdown">
-                                        <figure class="tg-adminpic">
-                                            <span class="tg-dashboardbadge">3</span>
-                                            <a href="dashboard.html"><img src="~/images/icons/icon-41.png" alt="image description"></a>
-                                        </figure>
-                                        <a href="javascript:void(0);" class="tg-usermenu tg-btndropdown">
-                                            <em>howdy, Anjela doe!</em>
-                                        </a>
-                                        <div class="dropdown-menu tg-dropdownbox tg-usermenu">
-                                            <ul>
-                                                <li>
-                                                    <a href="@Url.Action("Insights","Home")">
-
-                                                    <a >
-                                                        <i class="fa fa-line-chart"></i>
-                                                        <span>Insights</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("InsightsTwo","Home")">
-                                                        <i class="fa fa-line-chart"></i>
-                                                        <span>Insights-Two</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("ProfileSettings", "Home")">
-                                                        <i class="fa fa-user"></i>
-                                                        <span>Profile settings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("JobLocations", "Home")">
-                                                        <i class="fa fa-location-arrow"></i>
-                                                        <span>Job Locations</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("PrivateMasseges", "Home")">
-                                                        <i class="fa fa-envelope-o"></i>
-                                                        <span>Private Messages</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("Appointments", "Home")">
-                                                        <i class="fa fa-calendar-check-o"></i>
-                                                        <span>Appointments</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="@Url.Action("Appoinmentsetting", "Home")">
-                                                        <i class="fa fa-gear"></i>
-                                                        <span>Appointment Settings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-controller="Home" asp-action="favoritlisting">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span>Favourite Listings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="invoices" asp-controller="Home">
-                                                        <i class="fa fa-clone"></i>
-                                                        <span>Invoices</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a  asp-action="upgradepackage" asp-controller="Home">
-                                                        <i class="fa fa-arrow-up"></i>
-                                                        <span>Update Package</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="securitysettings" asp-controller="Home">
-                                                        <i class="fa fa-gears"></i>
-                                                        <span>Security Settings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="PrivacySetting" asp-controller="Home">
-                                                        <i class="fa fa-eye"></i>
-                                                        <span>Privacy Settings</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fa fa-sign-out"></i>
-                                                        <span>Logout</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!--///////////////////////////////////////////////////////////////////////-->
+                            <!--///////////////////////////////////////////////////////////////////////-->
+                            
                         </div>
                     </div>
                 </div>
@@ -656,7 +588,7 @@
             </div>
         </div>
     </div>
-    @RenderSection("Scripts",required:false)
+    @RenderSection("Scripts", required: false)
     <!--************************************
                 Light Box End
     *************************************-->

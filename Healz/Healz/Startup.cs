@@ -66,12 +66,15 @@ namespace Healz
 
             app.UseAuthentication();
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+                  name: "default",
+                 template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapAreaRoute("User", "User",
+                    template: "User/{controller=user}/{action=Insights}/{id?}");
+             });
         }
     }
 }

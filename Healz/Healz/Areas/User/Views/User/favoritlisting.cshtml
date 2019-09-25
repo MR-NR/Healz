@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewData["Title"] = "favoritlisting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--************************************
+            Main Start
+    *************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <div class="container">
+        <div class="row">
+            <div id="tg-content" class="tg-content tg-dashboard">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 pull-left">
+                    @await Html.PartialAsync("~/Views/Shared/_InsitePartial.cshtml")
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 pull-right">
+                    <div class="tg-dashboardfavoritlisting">
+                        <div class="tg-dashboardbox">
+                            <div class="tg-dashboardboxtitle">
+                                <h2>Favourite Listings</h2>
+                            </div>
+                            <div class="tg-tablescroll">
+                                <div class="tg-favoritlistingbox">
+                                    <div class="tg-favoritlisttitle">
+                                        <span>Title</span>
+                                        <span class="tg-titleaction">Action</span>
+                                    </div>
+                                    <ul class="tg-favoritlist">
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-21.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Triona Spa &amp; Massage Center</a></h4>
+                                                    <span>MBBS, MRCOG, FRCOG, CCST , UK – Gynecologist</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-02.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Life Saver Pharmacy</a></h4>
+                                                    <span>Local Pharmaceutical Council (LPhC)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-03.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Manchester Eye Hospital</a></h4>
+                                                    <span>Manchester Trust Hospital</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-04.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Trim Down Fitness Studio</a></h4>
+                                                    <span>Health &amp; Beauty &amp; Fitness</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-01.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Triona Spa &amp; Massage Center</a></h4>
+                                                    <span>MBBS, MRCOG, FRCOG, CCST , UK – Gynecologist</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-02.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Life Saver Pharmacy</a></h4>
+                                                    <span>Local Pharmaceutical Council (LPhC)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-03.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Manchester Eye Hospital</a></h4>
+                                                    <span>Manchester Trust Hospital</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-04.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Trim Down Fitness Studio</a></h4>
+                                                    <span>Health &amp; Beauty &amp; Fitness</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tg-favotirelistcontent">
+                                                <figure><a href="#"><img src="~/images/thumbnails/img-01.jpg" alt="image description"></a></figure>
+                                                <div class="tg-listdata">
+                                                    <h4><a href="#">Triona Spa &amp; Massage Center</a></h4>
+                                                    <span>MBBS, MRCOG, FRCOG, CCST , UK – Gynecologist</span>
+                                                </div>
+                                            </div>
+                                            <div class="tg-btnaction">
+                                                <a class="tg-btnview" href="#"><i class="fa fa-eye"></i></a>
+                                                <a class="tg-btndelete" href="#"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--************************************
+        Main End
+*************************************-->

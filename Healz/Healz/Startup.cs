@@ -73,9 +73,13 @@ namespace Healz
                     template: "{controller=Home}/{action=Index}/{id?}");
 
 
-                routes.MapAreaRoute("Doctor", "Doctor",
-                    "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
-               
+                //routes.MapAreaRoute("Doctor", "Doctor",
+                //    "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
+
+            routes.MapAreaRoute(
+            name: "Doctor",
+            areaName: "Doctor",
+            template: "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
             });
         }
     }

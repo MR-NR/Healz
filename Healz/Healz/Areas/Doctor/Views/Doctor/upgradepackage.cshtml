@@ -1,0 +1,287 @@
+﻿
+@{
+    ViewData["Title"] = "upgradepackage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--************************************
+        Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <div class="container">
+        <div class="row">
+            <div id="tg-content" class="tg-content tg-dashboard tg-tuitiondashboard">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 pull-left">
+                    @await Html.PartialAsync("~/Views/Shared/_Insite_Partial.cshtml")
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 pull-right">
+                    <form class="tg-formtheme">
+                        <fieldset>
+                            <div class="tg-pkgexpireyandcounter">
+                                <div class="tg-timecounter tg-expireytimecounter">
+                                    <div id="tg-countdown" class="tg-countdown"></div>
+                                </div>
+                                <div class="tg-pkgexpirey">
+                                    <h3>Renew Subscription</h3>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                                    </div>
+                                    <a class="tg-btn" href="#">renew now</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="tg-dashboardbox">
+                                <div class="tg-dashboardboxtitle">
+                                    <h2>Update Your Package</h2>
+                                </div>
+                                <div class="tg-packagesbox">
+                                    <div class="tg-packagesplanstabs">
+                                        <ul class="tg-navpackageplans" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#tg-basic" aria-controls="tg-basic" role="tab" data-toggle="tab">
+                                                    <div class="tg-pkgplan">
+                                                        <div class="tg-pkgplanhead">
+                                                            <h3>Basic</h3>
+                                                            <h4>from <span>$10.00</span> per month</h4>
+                                                        </div>
+                                                        <div class="tg-description">
+                                                            <p>Consectetur</p>
+                                                            <p>Adipisicing elit</p>
+                                                            <p>Sed eiusmod tempor</p>
+                                                            <p>Incididunt ut labore</p>
+                                                            <p>Dolore magna</p>
+                                                        </div>
+                                                        <span class="tg-btn">Renew Now</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#tg-silver" aria-controls="tg-silver" role="tab" data-toggle="tab">
+                                                    <div class="tg-pkgplan">
+                                                        <div class="tg-pkgplanhead">
+                                                            <h3>Sliver</h3>
+                                                            <h4>from <span>$15.00</span> per month</h4>
+                                                        </div>
+                                                        <div class="tg-description">
+                                                            <p>Consectetur</p>
+                                                            <p>Adipisicing elit</p>
+                                                            <p>Sed eiusmod tempor</p>
+                                                            <p>Incididunt ut labore</p>
+                                                            <p>Dolore magna</p>
+                                                        </div>
+                                                        <span class="tg-btn">Renew Now</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#tg-gold" aria-controls="tg-gold" role="tab" data-toggle="tab">
+                                                    <div class="tg-pkgplan">
+                                                        <div class="tg-pkgplanhead">
+                                                            <h3>gold</h3>
+                                                            <h4>from <span>$25.00</span> per month</h4>
+                                                        </div>
+                                                        <div class="tg-description">
+                                                            <p>Consectetur</p>
+                                                            <p>Adipisicing elit</p>
+                                                            <p>Sed eiusmod tempor</p>
+                                                            <p>Incididunt ut labore</p>
+                                                            <p>Dolore magna</p>
+                                                        </div>
+                                                        <span class="tg-btn">Renew Now</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content tg-pkgtabcontent">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="tg-basic">
+                                                <div class="tg-summary">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Summary</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Package (Silver Package)</td>
+                                                                    <td>$10.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Total</td>
+                                                                    <td>$10.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-paymentoption">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Payment Options</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-31.png" alt="image description"> Bank Transfer</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-32.png" alt="image description"> Paypal</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-33.png" alt="image description"> Paypal Recurring Payment</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-34.png" alt="image description"> Credit Card (Stripe)</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-pkgfoot">
+                                                    <span class="tg-checkbox">
+                                                        <input type="checkbox" id="currentjob1" name="currentjob" value="I’m doing this currently.">
+                                                        <label for="currentjob1">I have read the <strong>terms and conditions</strong> and accept them.</label>
+                                                    </span>
+                                                    <a class="tg-btn" href="#">proceed Now</a>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tg-silver">
+                                                <div class="tg-summary">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Summary</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Package (Silver Package)</td>
+                                                                    <td>$15.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Total</td>
+                                                                    <td>$15.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-paymentoption">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Payment Options</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-31.png" alt="image description"> Bank Transfer</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-32.png" alt="image description"> Paypal</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-33.png" alt="image description"> Paypal Recurring Payment</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-34.png" alt="image description"> Credit Card (Stripe)</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-pkgfoot">
+                                                    <span class="tg-checkbox">
+                                                        <input type="checkbox" id="currentjob2" name="currentjob" value="I’m doing this currently.">
+                                                        <label for="currentjob2">I have read the <strong>terms and conditions</strong> and accept them.</label>
+                                                    </span>
+                                                    <a class="tg-btn" href="#">proceed Now</a>
+                                                </div>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="tg-gold">
+                                                <div class="tg-summary">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Summary</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Package (Silver Package)</td>
+                                                                    <td>$25.00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Total</td>
+                                                                    <td>$25.00</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-paymentoption">
+                                                    <div class="tg-tablescroll">
+                                                        <table class="table table-striped tg-dashboardtable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2">Payment Options</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-31.png" alt="image description"> Bank Transfer</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-32.png" alt="image description"> Paypal</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-33.png" alt="image description"> Paypal Recurring Payment</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><img src="~/images/icons/icon-34.png" alt="image description"> Credit Card (Stripe)</td>
+                                                                    <td>&thinsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="tg-pkgfoot">
+                                                    <span class="tg-checkbox">
+                                                        <input type="checkbox" id="currentjob3" name="currentjob" value="I’m doing this currently.">
+                                                        <label for="currentjob3">I have read the <strong>terms and conditions</strong> and accept them.</label>
+                                                    </span>
+                                                    <a class="tg-btn" href="#">proceed Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--************************************
+        Main End
+*************************************-->

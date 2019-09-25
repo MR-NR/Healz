@@ -8,6 +8,7 @@ using Healz.Models;
 
 namespace Healz.Controllers
 {
+  
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -58,10 +59,7 @@ namespace Healz.Controllers
         {
             return View();
         }
-        public IActionResult InsightsTwo()
-        {
-            return View();
-        }
+   
         public IActionResult ProfileSettings()
         {
             return View();

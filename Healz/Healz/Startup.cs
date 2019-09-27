@@ -35,7 +35,7 @@ namespace Healz
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContextPool<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
@@ -66,16 +66,26 @@ namespace Healz
 
             app.UseAuthentication();
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                  name: "default",
+                 template: "{controller=Home}/{action=Index}/{id?}");
 
+                routes.MapAreaRoute("User", "User",
+                    template: "User/{controller=user}/{action=Insights}/{id?}");
+
+                //routes.MapAreaRoute("Doctor", "Doctor",
+                //    "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
 
                 routes.MapAreaRoute("Doctor","Doctor",
                     "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
                
+            routes.MapAreaRoute(
+            name: "Doctor",
+            areaName: "Doctor",
+            template: "Doctor/{controller=Doctor}/{action=Insights}/{id?}");
             });
         }
     }

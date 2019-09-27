@@ -86,23 +86,13 @@
                                 </div>
                                 <div id="tg-navigation" class="tg-navigation collapse navbar-collapse">
                                     <ul>
-                                        <li class="tg-hasdropdown">
-                                            <a href="#">Home</a>
-                                            <ul class="tg-dropdownmenu">
-                                                <li><a asp-area="Doctor"  asp-controller="Doctor" asp-action="Insights">Doctors</a></li>
-                                                <li><a asp-action="Hospitals" asp-controller="Home">Hospitals</a></li>
-                                                <li><a asp-action="Spas" asp-controller="Home">Spas</a></li>
-                                                <li><a asp-action="Pharmacies" asp-controller="Home">Pharmacies</a></li>
-                                                <li><a asp-action="Labs" asp-controller="Home">Labs</a></li>
-                                                <li><a asp-action="Fitness" asp-controller="Home">Fitness</a></li>
-                                                <li><a asp-action="Clinics" asp-controller="Home">Clinics</a></li>
-                                            </ul>
-                                        </li>
+
+                                        <li><a asp-action="Index" asp-controller="Home">Home</a></li>
                                         <li>@Html.ActionLink("About", "About", "Home", "") </li>
                                         <li><a asp-action="HowItWorks" asp-controller="Home">How It Works?</a></li>
                                         <li class="tg-hasdropdown">
                                             <a href="javascript:void(0);">
-                                                <i class="hidden-xs fa fa-navicon"></i>
+                                                <span>Blog</span>
                                                 <span class="hidden-lg hidden-md hidden-sm">Pages</span>
                                             </a>
                                             <ul class="tg-dropdownmenu">
@@ -126,8 +116,6 @@
                                         </li>
                                         <partial name="_LoginPartial" />
                                         <!--=======================================================-->
-                                        
-        
                                         <!--========================================================-->
                                     </ul>
                                 </div>

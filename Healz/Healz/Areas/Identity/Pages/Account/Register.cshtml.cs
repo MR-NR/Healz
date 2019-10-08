@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Healz.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Healz.Data;
 
 namespace Healz.Areas.Identity.Pages.Account
 {
@@ -40,6 +42,7 @@ namespace Healz.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+           
             [Required]
             public string Title { get; set; }
             [Required]
@@ -79,8 +82,11 @@ namespace Healz.Areas.Identity.Pages.Account
             {
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email,Title=Input.Title,FirstName=Input.FirstName,LastName=Input.LastName };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                
                 if (result.Succeeded)
                 {
+                   
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

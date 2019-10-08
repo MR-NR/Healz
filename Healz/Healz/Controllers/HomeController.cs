@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Healz.Controllers
 {
-  
+    
+
     public class HomeController : Controller
     { 
         

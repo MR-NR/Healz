@@ -1,0 +1,275 @@
+﻿@page
+@model Healz.Areas.Identity.Pages.Account.LoginAndRegisterModel
+@{
+}
+    <div class="row">
+        <div style="margin-bottom:50px;  " class="tg-pageinnerbanner tg-haslayout tg-parallaximg" data-appear-top-offset="600" data-parallax="scroll" data-image-src="/images/banner/img-02.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="tg-pageheadcontent">
+                            <div class="tg-pagetitle">
+                                <h1>Login/Register</h1>
+                            </div>
+                            <ol class="tg-breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li class="tg-active">Login/Register</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-5 col-xs-12">
+            <section>
+               
+                    <h4 style="font-weight:bold;margin-left:10px">Use a local account to log in.</h4>
+                    <hr />
+                    
+                       
+                            <div id="tg-twocolumns" style="margin-left:10px; align-items:flex-start;display:flex;justify-content:center;" class="tg-twocolumns">
+                                <div class="">
+                                    <aside id="tg-sidebar" class="tg-sidebar">
+                                        <div class="tg-widget tg-widgetlogin">
+                                            <div class="tg-widgetcontent">
+                                                <div class="tg-widgettitle">
+                                                    <h3>Login Now</h3>
+                                                </div>
+                                                <form method="post"  class="tg-themeform tg-formsignin">
+                                                    <fieldset>
+                                                        <div class="form-group">
+                                                            <label asp-for="LoginInput.Email"></label>
+                                                            <input asp-for="LoginInput.Email" class="form-control" />
+                                                            <span asp-validation-for="LoginInput.Email" class="text-danger"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label asp-for="LoginInput.Password"></label>
+                                                            <input asp-for="LoginInput.Password" class="form-control" />
+                                                            <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="checkbox">
+                                                                <label asp-for="LoginInput.RememberMe">
+                                                                    <input asp-for="LoginInput.RememberMe" />
+                                                                        
+                                                                    
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <button type="submit" class="tg-btn tg-btn-lg">Log in</button>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <p>
+                                                                <a asp-page="./ForgotPassword">Forgot your password?</a>
+                                                            </p>
+
+                                                        </div>
+                                                        
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                                    </aside>
+                                </div>
+                            </div>
+
+                           
+                
+            </section>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+
+           
+                
+                    <h4 style="font-weight:bold;">Create a new account.</h4>
+                    <hr /><div class="" style="margin-left:10px;align-items:center;display:flex;justify-content:center;">
+                    <div id="tg-content" class="tg-content">
+             <div class="tg-signinsignup">
+                @*<div class="tg-title">
+                        <h2>Register Now As</h2>
+                    </div>*@
+                <div class="tg-dashboardtabs">
+                    <ul class="tg-dashboardtabnav" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Service Seeker</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#services" aria-controls="services" role="tab" data-toggle="tab">Service Provider</a>
+                        </li>
+                    </ul>
+                    <div class=" tab-content tg-dashboardtabcontent">
+                        <div role="tabpanel" class="tab-pane active" id="overview">
+                            <div class="tg-searchbulder">
+                                <div id="tg-signincategoryslider" class="tg-categoryslider tg-category tg-signincategory">
+                                    <span data-id="doctorscategory" class="item tg-radio">
+                                        <input type="radio" id="doctors" name="maincategory" value="Doctors" checked="">
+                                        <label for="doctors">
+                                            <span><img src="~/images/icons/icon-08.png" alt="image description"></span>
+                                            <span>Doctors</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="hospitalscategory" class="item tg-radio">
+                                        <input type="radio" id="hospitals" name="maincategory" value="Hospitals">
+                                        <label for="hospitals">
+                                            <span><img src="~/images/icons/icon-09.png" alt="image description"></span>
+                                            <span>Hospitals</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="spascategory" class="item tg-radio">
+                                        <input type="radio" id="spas" name="maincategory" value="Spas">
+                                        <label for="spas">
+                                            <span><img src="~/images/icons/icon-10.png" alt="image description"></span>
+                                            <span>Spas</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="pharmaciescategory" class="item tg-radio">
+                                        <input type="radio" id="pharmacies" name="maincategory" value="Pharmacies">
+                                        <label for="pharmacies">
+                                            <span><img src="~/images/icons/icon-11.png" alt="image description"></span>
+                                            <span>Pharmacies</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="labscategory" class="item tg-radio">
+                                        <input type="radio" id="labs" name="maincategory" value="Labs">
+                                        <label for="labs">
+                                            <span><img src="~/images/icons/icon-12.png" alt="image description"></span>
+                                            <span>Labs</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="fitnesscategory" class="item tg-radio">
+                                        <input type="radio" id="fitness" name="maincategory" value="Fitness">
+                                        <label for="fitness">
+                                            <span><img src="~/images/icons/icon-13.png" alt="image description"></span>
+                                            <span>Fitness</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="bloodbankcategory" class="item tg-radio">
+                                        <input type="radio" id="bloodband" name="maincategory" value="Blood Bank">
+                                        <label for="bloodband">
+                                            <span><img src="~/images/icons/icon-14.png" alt="image description"></span>
+                                            <span>Blood Bank</span>
+                                        </label>
+                                    </span>
+                                    <span data-id="clinicscategory" class="item tg-radio">
+                                        <input type="radio" id="clinics" name="maincategory" value="Clinics">
+                                        <label for="clinics">
+                                            <span><img src="~/images/icons/icon-15.png" alt="image description"></span>
+                                            <span>Clinics</span>
+                                        </label>
+                                    </span>
+                                </div>
+                                <div id="tg-subcategories" class="tg-subcategories">
+                                    <div id="doctorscategory" class="col-md-4 tg-tabcontent tg-active">
+                                        <form method="post" class="tg-formtheme tg-formsigninsignup">
+                                            <fieldset>
+                                                <div class="row tg-rowmargin">
+                                                    
+
+                                                    <div class=" tg-columnpadding">
+
+                                                        <div class="form-group tg-formgroup">
+                                                            <label asp-for="RegisterInput.Title"></label>
+                                                            <select class="form-control" asp-for="RegisterInput.Title">
+                                                                <option value="">Select</option>
+                                                                <option value="Mr">Mr</option>
+                                                                <option value="Mrs">Mrs</option>
+                                                            </select>
+                                                            <span asp-validation-for="RegisterInput.Title" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 tg-columnpadding">
+                                                        <div class="form-group tg-formgroup">
+                                                            <label asp-for="RegisterInput.FirstName"></label>
+                                                            <input asp-for="RegisterInput.FirstName" class="form-control" />
+                                                            <span asp-validation-for="RegisterInput.FirstName" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 tg-columnpadding">
+                                                        <div class="form-group tg-formgroup">
+                                                            <label asp-for="RegisterInput.LastName"></label>
+                                                            <input asp-for="RegisterInput.LastName" class="form-control" />
+                                                            <span asp-validation-for="RegisterInput.LastName" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 tg-columnpadding">
+
+                                                        <div class="form-group tg-formgroup">
+                                                            <label asp-for="RegisterInput.Email"></label>
+                                                            <input asp-for="RegisterInput.Email" class="form-control" />
+                                                            <span asp-validation-for="RegisterInput.Email" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 tg-columnpadding">
+                                                        <div class="form-group tg-formgroup">
+
+                                                            <label asp-for="RegisterInput.Password"></label>
+                                                            <input asp-for="RegisterInput.Password" class="form-control" />
+                                                            <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 tg-columnpadding">
+                                                        <div class="form-group tg-formgroup">
+                                                            <label asp-for="RegisterInput.ConfirmPassword"></label>
+                                                            <input asp-for="RegisterInput.ConfirmPassword" class="form-control" />
+                                                            <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+
+                                                   
+                                                    <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                        <button type="submit" class="tg-btn tg-btn-lg">Register</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                        <div class="tg-registervia">
+                                            <div class="tg-title">
+                                                <h2>Or Register Via</h2>
+                                            </div>
+                                            <ul class="tg-socialiconslarge">
+                                                <li class="tg-facebook"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                                <li class="tg-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li class="tg-linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                <li class="tg-googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                <li class="tg-dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                                <li class="tg-rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    @*<div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="RegisterInput.Email"></label>
+                        <input asp-for="RegisterInput.Email" class="form-control" />
+                        <span asp-validation-for="RegisterInput.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegisterInput.Password"></label>
+                        <input asp-for="RegisterInput.Password" class="form-control" />
+                        <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegisterInput.ConfirmPassword"></label>
+                        <input asp-for="RegisterInput.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="RegisterInput.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>*@
+            
+            </div>
+        
+   
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

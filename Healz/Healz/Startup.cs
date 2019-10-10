@@ -62,8 +62,8 @@ namespace Healz
 
             services.AddAuthentication().AddGoogle("google" , options =>
             {
-                options.ClientId = "393151097630-u0el6hu50b0utrsoo4vk9n4e215hh3bc.apps.googleusercontent.com";
-                options.ClientSecret = " E7s6QJgIJfxVYtgcR2Tbjomd";
+                options.ClientId = "393151097630-e9v73tdaihs7jb8kn6ikm053qrb1aq75.apps.googleusercontent.com";
+                options.ClientSecret = "dyhGmx5wo-fx7TOsT7Wu4LBW";
                 options.SignInScheme = IdentityConstants.ExternalScheme;
             });
         }

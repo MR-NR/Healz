@@ -14,10 +14,16 @@ namespace Healz.Areas.user.Controllers
     public class UserController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
-        public UserController(UserManager<ApplicationUser> userManager)
+        private IUserClaimsPrincipalFactory<ApplicationUser> claimPrincipalFactory;
+
+        public UserController(UserManager<ApplicationUser> userManager,
+            IUserClaimsPrincipalFactory<ApplicationUser> claimsPrincipalFactory)
         {
             this.userManager = userManager;
+            this.claimPrincipalFactory = claimsPrincipalFactory;
         }
+         
+
 
         public IActionResult Insights()
         {
@@ -73,14 +79,13 @@ namespace Healz.Areas.user.Controllers
         }
 
 
-
         [HttpGet]
         public IActionResult ExternalLogin(string provider)
         {
             var properties = new AuthenticationProperties
             {
                 RedirectUri = Url.Action("ExternalLoginCallback"),
-                Items = { { "Scheme", provider } }
+                Items = {{ "Scheme", provider }}
             };
             return Challenge(properties, provider);
         }
@@ -106,14 +111,15 @@ namespace Healz.Areas.user.Controllers
                         await userManager.CreateAsync(user);
 
                     }
-                    await userManager.AddLoginAsync(user, new UserLoginInfo(provider, externalUserId, provider));
+                    await userManager.AddLoginAsync(user, 
+                        new UserLoginInfo(provider, externalUserId, provider));
                 }
             }
             if (user == null) return View("Error");
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-            //var ClaimPrinciple = await ClaimsPrincipalFactory.CreateAsync(user);
-            //await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, ClaimPrinciple);
-            return RedirectToAction("Index");
+            var ClaimPrinciple = await claimPrincipalFactory.CreateAsync(user);
+            await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, ClaimPrinciple);
+            return RedirectToAction("Insights");
         }
 
 

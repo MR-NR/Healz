@@ -39,10 +39,12 @@ namespace Healz
             services.AddDbContextPool<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddIdentityCore<ApplicationUser>(options =>
+             services.AddIdentityCore<ApplicationUser>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -55,13 +57,19 @@ namespace Healz
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-            services.AddTransient<ApplicationDbContextSeedData>();
-
+ 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddAuthentication().AddGoogle("google" , options =>
+            {
+                options.ClientId = "393151097630-e9v73tdaihs7jb8kn6ikm053qrb1aq75.apps.googleusercontent.com";
+                options.ClientSecret = "dyhGmx5wo-fx7TOsT7Wu4LBW";
+                options.SignInScheme = IdentityConstants.ExternalScheme;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ApplicationDbContextSeedData seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -74,8 +82,7 @@ namespace Healz
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            seeder.SeedAdminUser();
-            app.UseHttpsRedirection();
+             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

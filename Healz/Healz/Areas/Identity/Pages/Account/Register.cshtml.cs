@@ -12,7 +12,6 @@ using Microsoft.Extensions.Logging;
 using Healz.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Healz.Data;
-using Microsoft.AspNetCore.Authentication;
 
 namespace Healz.Areas.Identity.Pages.Account
 {
@@ -69,10 +68,6 @@ namespace Healz.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-
-            public string ReturnUrl { get; set; }
-
-            public IList<AuthenticationScheme> ExternalLogins { get; set; }
         }
 
         public void OnGet(string returnUrl = null)

@@ -1,30 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using Healz.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
 
 namespace Healz.Areas.user.Controllers
 {
     [Area("User")]
     public class UserController : Controller
     {
-        private readonly UserManager<ApplicationUser> userManager;
-        private IUserClaimsPrincipalFactory<ApplicationUser> claimPrincipalFactory;
-
-        public UserController(UserManager<ApplicationUser> userManager,
-            IUserClaimsPrincipalFactory<ApplicationUser> claimsPrincipalFactory)
-        {
-            this.userManager = userManager;
-            this.claimPrincipalFactory = claimsPrincipalFactory;
-        }
-         
-
-
         public IActionResult Insights()
         {
             return View();
@@ -79,49 +63,7 @@ namespace Healz.Areas.user.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult ExternalLogin(string provider)
-        {
-            var properties = new AuthenticationProperties
-            {
-                RedirectUri = Url.Action("ExternalLoginCallback"),
-                Items = {{ "Scheme", provider }}
-            };
-            return Challenge(properties, provider);
-        }
-        [HttpGet]
-        public async Task<IActionResult> ExternalLoginCallback()
-        {
-            var result = await HttpContext.AuthenticateAsync(IdentityConstants.ExternalScheme);
-            var externalUserId = result.Principal.FindFirstValue("sub")
-                ?? result.Principal.FindFirstValue(ClaimTypes.NameIdentifier)
-                ?? throw new Exception("Cannot find External user id");
-            var provider = result.Properties.Items["Scheme"];
-            var user = await userManager.FindByLoginAsync(provider, externalUserId);
-            if (user == null)
-            {
-                var email = result.Principal.FindFirstValue("email")
-                    ?? result.Principal.FindFirstValue(ClaimTypes.Email);
-                if (email != null)
-                {
-                    user = await userManager.FindByEmailAsync(email);
-                    if (user == null)
-                    {
-                        user = new ApplicationUser { UserName = email, Email = email };
-                        await userManager.CreateAsync(user);
-
-                    }
-                    await userManager.AddLoginAsync(user, 
-                        new UserLoginInfo(provider, externalUserId, provider));
-                }
-            }
-            if (user == null) return View("Error");
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-            var ClaimPrinciple = await claimPrincipalFactory.CreateAsync(user);
-            await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, ClaimPrinciple);
-            return RedirectToAction("Insights");
-        }
-
+        
 
 
 

@@ -36,7 +36,7 @@ namespace Healz.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel RegisterInput { get; set; }
 
         public string ReturnUrl { get; set; }
 
@@ -80,8 +80,8 @@ namespace Healz.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email,Title=Input.Title,FirstName=Input.FirstName,LastName=Input.LastName };
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                var user = new ApplicationUser { UserName = RegisterInput.Email, Email = RegisterInput.Email,Title=RegisterInput.Title,FirstName=RegisterInput.FirstName,LastName=RegisterInput.LastName };
+                var result = await _userManager.CreateAsync(user, RegisterInput.Password);
                 
                 if (result.Succeeded)
                 {
@@ -96,7 +96,7 @@ namespace Healz.Areas.Identity.Pages.Account
                         values: new { userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    await _emailSender.SendEmailAsync(RegisterInput.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);

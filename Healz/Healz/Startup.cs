@@ -55,13 +55,13 @@ namespace Healz
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-            services.AddTransient<ApplicationDbContextSeedData>();
+            //services.AddTransient<ApplicationDbContextSeedData>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ApplicationDbContextSeedData seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -74,7 +74,7 @@ namespace Healz
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            seeder.SeedAdminUser();
+            /*seeder.SeedAdminUser()*/;
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

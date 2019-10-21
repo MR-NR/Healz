@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Healz.Areas.Doctor.Controllers
+namespace Healz.Controllers
 {
   
-    [Area("Doctor")]
+    [Authorize(Roles ="Doctor")]
     public class DoctorController : Controller
     {
        

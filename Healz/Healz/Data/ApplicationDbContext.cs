@@ -69,7 +69,7 @@ namespace Healz.Data
 
         public DbSet<ParameterValue> ParameterValues { get; set; }
         public DbSet<RepotDetails> RepotDetails { get; set; }
-
+        public DbSet<Healz.Models.BlogPost> BlogPost { get; set; }
 
 
     }

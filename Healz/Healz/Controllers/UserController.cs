@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Healz.Areas.user.Controllers
+namespace Healz.Controllers
 {
-    [Area("User")]
+   [Authorize(Roles ="User")]
     public class UserController : Controller
     {
         public IActionResult Insights()

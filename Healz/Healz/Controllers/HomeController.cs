@@ -9,15 +9,16 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Healz.Controllers
 {
-    
 
+    [Authorize]
     public class HomeController : Controller
-    { 
-        
+    {
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
+        
         public IActionResult About()
         {
             return View();

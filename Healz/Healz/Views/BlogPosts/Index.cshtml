@@ -1,0 +1,206 @@
+﻿@model IEnumerable<Healz.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="tg-pageinnerbanner tg-haslayout tg-parallaximg" data-appear-top-offset="600" data-parallax="scroll" data-image-src="/images/banner/img-02.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="tg-pageheadcontent">
+                        <div class="tg-pagetitle">
+                            <h1>our latest news</h1>
+                        </div>
+                        <ol class="tg-breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li class="tg-active">news list</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div id="tg-twocolumns" class="tg-twocolumns">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="tg-sectionhead">
+                            <div class="tg-sectiontitle">
+                                <h2>Latest News</h2>
+                                <img class="tg-svginject" src="~/images/sectionline.svg" alt="image description">
+                            </div>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div>
+                                    <p style="margin-top:20px;text-align:center">
+                                        <a style="font-size:20px" asp-action="Create">Create New<i style="padding-left:5px" class="fa fa-plus-square "></i></a>
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-xs-12 pull-right">
+                        <div id="tg-content" class="tg-content">
+                            <div class="tg-latestnews tg-list">
+                                @foreach (var item in Model)
+                                {
+                                    <article class="tg-post">
+
+                                        <figure class="tg-postimg"><a asp-action="Details" asp-route-id="@item.BlogPostId"><img src="~/images/post/@item.postImgUrl" alt="image description"></a></figure>
+                                        <div class="tg-postcontent">
+
+                                            <time class="tg-postdate" datetime="2011-10-10">June <span>27</span></time>
+                                            <div class="tg-posttitle">
+                                                <a asp-action="Details" asp-route-id="@item.BlogPostId"><h3>@Html.DisplayFor(modelItem => item.postTitle)</h3></a>
+                                            </div>
+                                            <ul class="tg-metadata">
+                                                <li>
+                                                    <em>Posted By: </em>
+                                                    @Html.DisplayFor(modelItem => item.postedBy)
+                                                </li>
+                                            </ul>
+                                            <div class="tg-description">@Html.DisplayFor(modelItem => item.postDesc)</div>
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <div>
+                                                
+                                                    <a asp-action="Details" asp-route-id="@item.BlogPostId">Details</a> |
+                                                    <a asp-action="Delete" asp-route-id="@item.BlogPostId">Delete</a>
+                                                </div>
+                                            }
+                                        </div>
+
+
+                                    </article>
+                                }
+                            </div>
+                            <nav class="tg-pagination">
+                                <ul>
+                                    <li class="tg-prevpage"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li class="tg-active"><a href="#">2</a></li>
+                                    <li>...</li>
+                                    <li><a href="#">10</a></li>
+                                    <li class="tg-nextpage"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 pull-left">
+                        <aside id="tg-sidebar" class="tg-sidebar">
+                            <div class="tg-widget">
+                                <div class="tg-widgettitle">
+                                    <h3>Search</h3>
+                                </div>
+                                <div class="tg-widgetcontent">
+                                    <form class="tg-formtheme tg-formfeedbacksearch">
+                                        <fieldset>
+                                            <input type="search" class="form-control" name="search" placeholder="Searc Here">
+                                            <button><i class="fa fa-search"></i></button>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tg-widget">
+                                <div class="tg-widgettitle">
+                                    <h3>Categories</h3>
+                                </div>
+                                <div class="tg-widgetcontent tg-widgetcategories">
+                                    <ul>
+                                        <li><a href="#">All <span>(543447)</span></a></li>
+                                        <li><a href="#">Psd <span>(4112)</span></a></li>
+                                        <li><a href="#">UI/UX <span>(1214)</span></a></li>
+                                        <li><a href="#">HTML <span>(755)</span></a></li>
+                                        <li><a href="#">Wordpress <span>(1212)</span></a></li>
+                                        <li><a href="#">S.E.O <span>(4522)</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tg-widget">
+                                <div class="tg-widgettitle">
+                                    <h3>Most Popular</h3>
+                                </div>
+                                <div class="tg-widgetcontent tg-widgetpoststyle">
+                                    <ul>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-14.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">Step Forward Or Leave</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-15.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">10 Tips To Stay Healthy</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-16.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">17 Things You Should Know</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tg-widget">
+                                <div class="tg-widgettitle">
+                                    <h3>Archives</h3>
+                                </div>
+                                <div class="tg-widgetcontent tg-widgetarchives">
+                                    <ul>
+                                        <li><a href="#">All 2016 <span>(543447)</span></a></li>
+                                        <li><a href="#">Jan 2016 <span>(4112)</span></a></li>
+                                        <li><a href="#">Feb 2016 <span>(1214)</span></a></li>
+                                        <li><a href="#">Mar 2016 <span>(755)</span></a></li>
+                                        <li><a href="#">Apr 2016 <span>(1212)</span></a></li>
+                                        <li><a href="#">May 2016 <span>(4522)</span></a></li>
+                                        <li><a href="#">Jun 2016 <span>(2456)</span></a></li>
+                                        <li><a href="#">Jul 2016 <span>(453)</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tg-widget">
+                                <div class="tg-widgettitle">
+                                    <h3>Most Commented</h3>
+                                </div>
+                                <div class="tg-widgetcontent tg-widgetpoststyle">
+                                    <ul>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-14.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">Step Forward Or Leave</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-15.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">10 Tips To Stay Healthy</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><a href="#"><img src="~/images/thumbnails/img-16.jpg" alt="image description"></a></figure>
+                                            <div class="tg-postcontent">
+                                                <h5><a href="#">17 Things You Should Know</a></h5>
+                                                <span class="tg-subjects">Post Author: Pricilla Nader</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!--=========================================================================================================-->
+
+

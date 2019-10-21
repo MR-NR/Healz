@@ -1,0 +1,58 @@
+﻿@model Healz.Models.BlogPostCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 style="text-align:center">Create</h2>
+
+<h4 style="text-align:center">BlogPost</h4>
+<hr />
+<div class="row">
+    <div style="margin-left:35%" class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="postTitle" class="control-label"></label>
+                <input asp-for="postTitle" class="form-control" placeholder="Title" />
+                <span asp-validation-for="postTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="postDesc"  class="control-label"></label>
+                <textarea asp-for="postDesc" class="form-control" rows="6" placeholder="Add Description Here..."></textarea>
+                <span asp-validation-for="postDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgUrl" class="control-label"></label>
+                <div class="custom-file">
+                    <input style="padding:0px" type="file" asp-for="ImgUrl" class="form-control custom-file-input" />
+                    
+                </div>
+                <span asp-validation-for="ImgUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="postDate" class="control-label"></label>
+                <input asp-for="postDate" class="form-control" />
+                <span asp-validation-for="postDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <a style="margin-left:65%" asp-action="Index">Back to List</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    $(document).ready(function () {
+    $('.custom-file-input').on("change", function () {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).next('.custom-file-label').html(fileName);
+    })
+    });
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

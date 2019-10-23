@@ -1,10 +1,14 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@model Healz.Models.DoctorProfileViewModel
+
 @{
     ViewData["Title"] = "ProfileSettings";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-}
 
+}
 <main id="tg-main" class="tg-main tg-haslayout">
     <div class="container">
         <div class="row">
@@ -317,517 +321,538 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Basic Information</h2>
-                                    </div>
-                                    <div class="tg-box tg-basicinformation">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Title</option>
-                                                            <option>Title</option>
-                                                            <option>Title</option>
-                                                        </select>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="firstname" class="form-control" placeholder="First Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="lastname" class="form-control" placeholder="Last Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <input type="text" name="subtitle" class="form-control" placeholder="Sub Title (MDS - Paedodontics &amp; Preventive Dentistry)">
-                                            </div>
+
+                                <form asp-controller="Doctor" asp-action="ProfileSettings" method="post" enctype="multipart/form-data">
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Basic Information</h2>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Profile Photo</h2>
-                                    </div>
-                                    <div class="tg-box tg-profilephoto">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-8 col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="firstname" class="form-control" placeholder="File_name01.html">
+                                        <div class="tg-box tg-basicinformation">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span>
+                                                            <select asp-for="Title">
+                                                                <option>Mr</option>
+                                                                <option>Mrs</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">Brows</button>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">upload</button>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                                                        <span asp-validation-for="LastName" class="text-danger"></span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <input asp-for="SubTitle" class="form-control" placeholder="Sub Title (MDS - Paedodontics &amp; Preventive Dentistry)" />
+                                                    <span asp-validation-for="SubTitle" class="text-danger"></span>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Uploaded Photos</h2>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Profile Photo</h2>
+                                        </div>
+                                        <div class="tg-box tg-profilephoto">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-8 col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="ProfilePhoto" id="file" type="file" name="ProfilePhoto" class="form-control" placeholder="File_name01.html" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">Brows</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">upload</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Uploaded Photos</h2>
+                                        </div>
+                                        <div class="tg-box tg-uploadedphotos">
+                                            <ul class="tg-uploadedimggallery">
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-01.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-01.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-02.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-02.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-03.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-03.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-04.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-04.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-02.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-05.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-03.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-06.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg">
+                                                        <figure>
+                                                            <img src="~/images/thumbnails/img-04.jpg" alt="image description">
+                                                            <figcaption><i class="fa fa-close"></i></figcaption>
+                                                        </figure>
+                                                        <span class="tg-filename">img-07.jpg</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-galleryimg tg-uploading">
+                                                        <figure> <img src="~/images/thumbnails/img-08.jpg" alt="image description"> <span class="tg-loader"><i class="fa fa-spinner"></i></span> <span class="tg-uploadingbar"></span> </figure>
+                                                        <span class="tg-filename"></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="tg-box tg-uploadedphotos">
-                                        <ul class="tg-uploadedimggallery">
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-01.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-01.jpg</span>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Social Information</h2>
+                                        </div>
+                                        <div class="tg-box tg-socialinformation">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup tg-iconinput">
+                                                        <input asp-for="facebooklink" type="text" name="facebooklink" class="form-control" placeholder="www.facebook/domain.com">
+                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-02.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-02.jpg</span>
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup tg-iconinput">
+                                                        <input asp-for="twitterlink" type="text" name="twitterlink" class="form-control" placeholder="www.twitter/domain.com">
+                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-03.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-03.jpg</span>
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup tg-iconinput">
+                                                        <input asp-for="linkedin" type="text" name="linkedin" class="form-control" placeholder="www.linkedin/domain.com">
+                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-04.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-04.jpg</span>
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="googlepluslink" type="text" name="googlepluslink" class="form-control" placeholder="Enter Google+ Link Here">
+                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-02.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-05.jpg</span>
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="rsslink" type="text" name="rsslink" class="form-control" placeholder="Enter Rss Link Here">
+                                                    </div>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-03.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-06.jpg</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg">
-                                                    <figure>
-                                                        <img src="~/images/thumbnails/img-04.jpg" alt="image description">
-                                                        <figcaption><i class="fa fa-close"></i></figcaption>
-                                                    </figure>
-                                                    <span class="tg-filename">img-07.jpg</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-galleryimg tg-uploading">
-                                                    <figure> <img src="~/images/thumbnails/img-08.jpg" alt="image description"> <span class="tg-loader"><i class="fa fa-spinner"></i></span> <span class="tg-uploadingbar"></span> </figure>
-                                                    <span class="tg-filename"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Social Information</h2>
-                                    </div>
-                                    <div class="tg-box tg-socialinformation">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup tg-iconinput">
-                                                    <input type="text" name="facebooklink" class="form-control" placeholder="www.facebook/domain.com">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup tg-iconinput">
-                                                    <input type="text" name="twitterlink" class="form-control" placeholder="www.twitter/domain.com">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup tg-iconinput">
-                                                    <input type="text" name="linkedin" class="form-control" placeholder="www.linkedin/domain.com">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="googlepluslink" class="form-control" placeholder="Enter Google+ Link Here">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="rsslink" class="form-control" placeholder="Enter Rss Link Here">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup tg-iconinput">
-                                                    <input type="text" name="youtubelink" class="form-control" placeholder="www.youtube/domain.com">
+                                                <div class="col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup tg-iconinput">
+                                                        <input asp-for="youtubelink" type="text" name="youtubelink" class="form-control" placeholder="www.youtube/domain.com">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Specializations</h2>
-                                    </div>
-                                    <div class="tg-box tg-specializations tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Select/Type Specializations</option>
-                                                            <option>Select/Type Specializations</option>
-                                                            <option>Select/Type Specializations</option>
-                                                        </select>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Specializations</h2>
                                         </div>
-                                        <ul class="tg-threecolumns tg-liststyledot">
-                                            <li> <span>Consectetur adipisicing</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Laborei dolore magna</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Aminim aicing elit</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Tempor incididunt</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Dolore magna aliqua</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Ut enim ad minim</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Veniam quis nostrud</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Exercitation ullamco</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Commodo consequat</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Duis aute irureation</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Dolor in reprehenderit</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Experience</h2>
-                                    </div>
-                                    <div class="tg-box tg-experience tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="designation" class="form-control" placeholder="Designation">
+                                        <div class="tg-box tg-specializations tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-select">
+                                                            <select asp-for="Specializations">
+                                                                <option>General</option>
+                                                                <option>Heart Specialist</option>
+                                                                <option>Child Specialist</option>
+                                                                <option>Brain Specialization</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="companyname" class="form-control" placeholder="Company Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-5 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="startingdate" class="form-control" placeholder="Starting Date">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-5 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="endingdate" class="form-control" placeholder="Ending Date">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">Add Now</button>
-                                                </div>
-                                            </div>
+                                            <ul class="tg-threecolumns tg-liststyledot">
+                                                <li> <span>Consectetur adipisicing</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Laborei dolore magna</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Aminim aicing elit</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Tempor incididunt</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Dolore magna aliqua</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Ut enim ad minim</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Veniam quis nostrud</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Exercitation ullamco</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Commodo consequat</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Duis aute irureation</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Dolor in reprehenderit</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                            </ul>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <span>Senior Consultant</span> <span>Altrincham Group Of Company</span> <span>June 2015 - Present</span> </li>
-                                            <li> <span>Senior Therapist</span> <span>Sydney Trust Hospital</span> <span>Sep 2013 - Sep 2014</span> </li>
-                                            <li> <span>Jr. Osteopathic</span> <span>Altrincham Group Company</span> <span>Apr 2012 - Apr 2013</span> </li>
-                                        </ul>
                                     </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Education</h2>
-                                    </div>
-                                    <div class="tg-box tg-education tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="designation" class="form-control" placeholder="Designation">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="companyname" class="form-control" placeholder="Company Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-5 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="startingdate" class="form-control" placeholder="Starting Date">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-5 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="endingdate" class="form-control" placeholder="Ending Date">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">Add Now</button>
-                                                </div>
-                                            </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Experience</h2>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <span>Doctor of Pharmacy</span> <span>Manchester University</span> <span>June 2012 - June 2013</span> </li>
-                                            <li> <span>Doctor of Physical Therapy</span> <span>Sydney College Of Health</span> <span>May 2011 - May 2012</span> </li>
-                                            <li> <span>Doctor of Osteopathic Medicine</span> <span>Altrincham School Of Medical</span> <span>Apr 2010 - Apr 2011</span> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Languages</h2>
-                                    </div>
-                                    <div class="tg-box tg-languages tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Select/Type Languages</option>
-                                                            <option>Select/Type Languages</option>
-                                                            <option>Select/Type Languages</option>
-                                                        </select>
-                                                    </span>
+                                        <div class="tg-box tg-experience tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="Designation"  class="form-control" placeholder="Designation">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="CompanyName"  class="form-control" placeholder="Company Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="startingDateExperience"  class="form-control" placeholder="Starting Date">
+                                                        <span asp-validation-for="startingDateExperience" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="EndingDateExperience"  class="form-control" placeholder="Ending Date">
+                                                        <span asp-validation-for="EndingDateExperience" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">Add Now</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <span>Senior Consultant</span> <span>Altrincham Group Of Company</span> <span>June 2015 - Present</span> </li>
+                                                <li> <span>Senior Therapist</span> <span>Sydney Trust Hospital</span> <span>Sep 2013 - Sep 2014</span> </li>
+                                                <li> <span>Jr. Osteopathic</span> <span>Altrincham Group Company</span> <span>Apr 2012 - Apr 2013</span> </li>
+                                            </ul>
                                         </div>
-                                        <ul class="tg-threecolumns tg-liststyledot">
-                                            <li> <span>English</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Arabic</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Russian</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Chinese</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Portuguese</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Japanese</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Spanish</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                        </ul>
                                     </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Awards &amp; Recognitions</h2>
-                                    </div>
-                                    <div class="tg-box tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Awards &amp; Recognitions Title</option>
-                                                            <option>Awards &amp; Recognitions Title</option>
-                                                            <option>Awards &amp; Recognitions Title</option>
-                                                        </select>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="Occasion" class="form-control" placeholder="Occasion">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="date" class="form-control" placeholder="Date">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Education</h2>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <span> <em>Best Paper Presentation</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester University</span> <span>June 2013</span> </li>
-                                            <li> <span> <em>Best Young Dentist Award</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Sydney College Of Health</span> <span>May 2012</span> </li>
-                                            <li> <span> <em>Fellowship and Certification</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Altrincham School Of Medical</span> <span>Apr 2011</span> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Memberships</h2>
-                                    </div>
-                                    <div class="tg-box tg-memberships tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Memberships Title</option>
-                                                            <option>Memberships Title</option>
-                                                            <option>Memberships Title</option>
-                                                        </select>
-                                                    </span>
+                                        <div class="tg-box tg-education tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="DegreeName"  class="form-control" placeholder="Designation">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="InstituteName"  class="form-control" placeholder="Institute Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="StartingDateStudy"  class="form-control" placeholder="Starting Date">
+                                                        <span asp-validation-for="StartingDateStudy" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input asp-for="EndingDateStudy" class="form-control" />
+                                                    <span asp-validation-for="EndingDateStudy" class="text-danger"></span>
+                                                </div>
+
+                                                <div class="col-sm-5 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        @*<input asp-for="EndingDateStudy" type="text" name="endingdate" class="form-control" placeholder="Ending Date">*@
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">Add Now</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-inputicon tg-geolocationicon">
-                                                        <input type="text" name="Location" class="form-control" placeholder="Location">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-inputicon tg-calendaricon">
-                                                        <input type="text" name="date" class="form-control" placeholder="Date">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <span>Doctor of Pharmacy</span> <span>Manchester University</span> <span>June 2012 - June 2013</span> </li>
+                                                <li> <span>Doctor of Physical Therapy</span> <span>Sydney College Of Health</span> <span>May 2011 - May 2012</span> </li>
+                                                <li> <span>Doctor of Osteopathic Medicine</span> <span>Altrincham School Of Medical</span> <span>Apr 2010 - Apr 2011</span> </li>
+                                            </ul>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <span> <em>Society of Oral Implantologist</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester, united Kingdom</span> <span>June 2010</span> </li>
-                                            <li> <span> <em>Academy of Aesthetic &amp; Cosmetic Dentistry</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester, united Kingdom</span> <span>Apr 2009</span> </li>
-                                        </ul>
                                     </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Registrations</h2>
-                                    </div>
-                                    <div class="tg-box tg-registrations tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Registered ID</option>
-                                                            <option>Registered ID</option>
-                                                            <option>Registered ID</option>
-                                                        </select>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-inputicon tg-geolocationicon">
-                                                        <input type="text" name="Location" class="form-control" placeholder="Location">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-inputicon tg-calendaricon">
-                                                        <input type="text" name="date" class="form-control" placeholder="Date">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Languages</h2>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <span> <em>ID: 24562ARCV821</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester State Dental Council</span> <span>Oct 2008</span> </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Accepted Insurance</h2>
-                                    </div>
-                                    <div class="tg-box tg-acceptedinsurance tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <span class="tg-select">
-                                                        <select>
-                                                            <option>Select/Type Specializations</option>
-                                                            <option>Select/Type Specializations</option>
-                                                            <option>Select/Type Specializations</option>
-                                                        </select>
-                                                    </span>
+                                        <div class="tg-box tg-languages tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-select">
+                                                            <select asp-for="Languages">
+                                                                <option>English</option>
+                                                                <option>Urdu</option>
+                                                                <option>Arabic</option>
+                                                                <option>French</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                            <ul class="tg-threecolumns tg-liststyledot">
+                                                <li> <span>English</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Arabic</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Russian</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Chinese</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Portuguese</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Japanese</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Spanish</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                            </ul>
                                         </div>
-                                        <ul class="tg-threecolumns tg-liststyledot">
-                                            <li> <span>Consectetur adipisicing</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Tempor incididunt </span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Commodo consequat</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Dolore magna aliqua</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Duis aute irureation</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <span>Laborei dolore magna</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                        </ul>
                                     </div>
-                                </div>
-                                <div class="tg-dashboardbox">
-                                    <div class="tg-dashboardboxtitle">
-                                        <h2>Video Introduction/Interview</h2>
-                                    </div>
-                                    <div class="tg-box tg-videointerview tg-uiicons">
-                                        <div class="row tg-rowmargin">
-                                            <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <input type="text" name="videolink" class="form-control" placeholder="Enter URL Here">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
-                                                <div class="form-group tg-formgroup">
-                                                    <button class="tg-btn tg-btn-lg" type="submit">add now</button>
-                                                </div>
-                                            </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Awards &amp; Recognitions</h2>
                                         </div>
-                                        <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
-                                            <li> <em>www.youtube.com/YjY1laQ0jkZife9aaTeSETvKls</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <em>www.youtube.com/ZSWCHmhEZCOQrdf9BD40BMSj2l</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                            <li> <em>www.youtube.com/Nk3rHqssya5ib6HU7RLn2LWjXxngl8QIh0vCmvGQ</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
-                                        </ul>
+                                        <div class="tg-box tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-select">
+                                                            <select asp-for="AwardTitle">
+                                                                <option>Awards &amp; Recognitions Title</option>
+                                                                <option>Awards &amp; Recognitions Title</option>
+                                                                <option>Awards &amp; Recognitions Title</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="AwardOccasion"  class="form-control" placeholder="Occasion">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="AwardDate"  class="form-control" placeholder="Date">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <span> <em>Best Paper Presentation</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester University</span> <span>June 2013</span> </li>
+                                                <li> <span> <em>Best Young Dentist Award</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Sydney College Of Health</span> <span>May 2012</span> </li>
+                                                <li> <span> <em>Fellowship and Certification</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Altrincham School Of Medical</span> <span>Apr 2011</span> </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tg-updateall">
-                                    <span class="tg-note">* Click <strong>update all changes</strong> to update latest added detail (s).</span>
-                                    <button class="tg-btn" type="submit">update now</button>
-                                </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Memberships</h2>
+                                        </div>
+                                        <div class="tg-box tg-memberships tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-select">
+                                                            <select asp-for="MembershipTitle">
+                                                                <option>Society of Oral Implantologist</option>
+                                                                <option>Academy of Aesthetic</option>
+                                                                <option>Cosmetic Dentistry</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-inputicon tg-geolocationicon">
+                                                            <input asp-for="MembershipLocation"  class="form-control" placeholder="Location">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-inputicon tg-calendaricon">
+                                                            <input asp-for="MembershipDate"  class="form-control" placeholder="Date">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <span> <em>Society of Oral Implantologist</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester, united Kingdom</span> <span>June 2010</span> </li>
+                                                <li> <span> <em>Academy of Aesthetic &amp; Cosmetic Dentistry</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester, united Kingdom</span> <span>Apr 2009</span> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Registrations</h2>
+                                        </div>
+                                        <div class="tg-box tg-registrations tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-4 col-sm-12 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="RegistrationID"  class="form-control" placeholder="RegistrationID">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-inputicon tg-geolocationicon">
+                                                            <input asp-for="RegistrationLocation"  class="form-control" placeholder="Location">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-inputicon tg-calendaricon">
+                                                            <input asp-for="RegistrationDate"  class="form-control" placeholder="Date">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 pull-right tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <span> <em>ID: 24562ARCV821</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </span> <span>Manchester State Dental Council</span> <span>Oct 2008</span> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Accepted Insurance</h2>
+                                        </div>
+                                        <div class="tg-box tg-acceptedinsurance tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <span class="tg-select">
+                                                            <select asp-for="AcceptedInsurance">
+                                                                <option>Consectetur adipisicing</option>
+                                                                <option>Commodo</option>
+                                                                <option>Eiusmods</option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="tg-threecolumns tg-liststyledot">
+                                                <li> <span>Consectetur adipisicing</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Tempor incididunt </span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Commodo consequat</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Eiusmod tempor iidunt</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Dolore magna aliqua</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Duis aute irureation</span> <i class="fa fa-exclamation-circle tg-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="write your note here"></i> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <span>Laborei dolore magna</span> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tg-dashboardbox">
+                                        <div class="tg-dashboardboxtitle">
+                                            <h2>Video Introduction/Interview</h2>
+                                        </div>
+                                        <div class="tg-box tg-videointerview tg-uiicons">
+                                            <div class="row tg-rowmargin">
+                                                <div class="col-md-10 col-sm-9 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <input asp-for="VideoIntroduction"  class="form-control" placeholder="Enter URL Here">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-3 col-xs-12 tg-columnpadding">
+                                                    <div class="form-group tg-formgroup">
+                                                        <button class="tg-btn tg-btn-lg" type="submit">add now</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="tg-themelist tg-liststyledot tg-listdatastyle">
+                                                <li> <em>www.youtube.com/YjY1laQ0jkZife9aaTeSETvKls</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <em>www.youtube.com/ZSWCHmhEZCOQrdf9BD40BMSj2l</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                                <li> <em>www.youtube.com/Nk3rHqssya5ib6HU7RLn2LWjXxngl8QIh0vCmvGQ</em> <i class="fa fa-pencil"></i> <i class="fa fa-close"></i> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tg-updateall">
+                                        <span class="tg-note">* Click <strong>update all changes</strong> to update latest added detail (s).</span>
+                                       <button class="tg-btn" type="submit">submit now</button>
+                                        
+                                            @*<button type="submit" value="Submit" class="tg-btn" />*@
+                                        
+                                    </div>
+
+                                </form>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="services">
                                 <div class="tg-dashboardbox tg-profilesettings">
@@ -1221,6 +1246,7 @@
                                 <div class="tg-updateall">
                                     <span class="tg-note">* Click <strong>update all changes</strong> to update latest added detail (s).</span>
                                     <button class="tg-btn" type="submit">update now</button>
+
                                 </div>
                             </div>
                         </div>
@@ -1230,6 +1256,6 @@
         </div>
     </div>
 </main>
-<!--************************************
+
 
 

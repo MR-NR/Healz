@@ -71,6 +71,7 @@ namespace Healz.Data
         public DbSet<RepotDetails> RepotDetails { get; set; }
         public DbSet<Healz.Models.BlogPost> BlogPost { get; set; }
 
+        public DbSet<DoctorProfile> DoctorProfile { get; set; }
 
     }
 }

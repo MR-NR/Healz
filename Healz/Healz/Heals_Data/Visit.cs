@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Healz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace Healz.Heals_Data
         public int Id { get; set; }
         public DateTime Date{ get; set; }
         public DateTime Time { get; set; }
-        public virtual Appointment Appointment{ get; set; }
+        //public virtual Appointments Appointments{ get; set; }
 
     }
 }

@@ -1,7 +1,7 @@
 ﻿
-@{
-    ViewData["Title"] = "Appointments";
-  Layout = "~/Views/Shared/_Layout.cshtml";
+@{     
+ViewData["Title"] = "Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!--************************************
@@ -20,12 +20,12 @@
                             <div class="tg-dashboardboxtitle">
                                 <h2>Your Appointments</h2>
                             </div>
-                            <div id="tg-calendar" class="tg-calendar"></div>
+                            @*<div id="tg-calendar" class="tg-calendar"></div>*@
                             <div class="tg-dashboardinvoices tg-appointmentdetails">
                                 <div class="tg-tablescroll">
                                     <div class="tg-dashboardbox tg-appointmentdetailbox">
                                         <div class="tg-dashboardboxtitle">
-                                            <h2>Appointments Of <span>Jan 11, 2017</span></h2>
+                                            <h2>Appointments @*Of <span>Jan 11, 2017</span>*@</h2>
                                         </div>
                                         <div class="tg-favoritlistingbox">
                                             <div class="tg-invoicestitle">
@@ -33,53 +33,16 @@
                                                 <span class="tg-titleamount">Time</span>
                                                 <span class="tg-titleaction">Action</span>
                                             </div>
+                                            @*@foreach (var item in Model)*@
+                                            @*{*@
                                             <ul class="tg-invoices">
                                                 <li>
                                                     <div class="tg-invoicesheading">
-                                                        <h3><a href="#">Reason For Visit Here</a></h3>
-                                                        <span>Appointment Type Here</span>
+                                                        <h3><a href="#">@*@Html.DisplayFor(modelItem=>item.Title)*@</a></h3>
+                                                        <span>@*@Html.DisplayFor(modelItem => item.Type)*@</span>
                                                     </div>
                                                     <div class="tg-amout">
-                                                        <em>15.00</em>
-                                                    </div>
-                                                    <div class="tg-btnaction">
-                                                        <a class="tg-btnview" href="#" data-toggle="modal" data-target="#tg-appointmentapprove"><i class="fa fa-check"></i></a>
-                                                        <a class="tg-btndelete" href="#" data-toggle="modal" data-target="#tg-appointmentreject"><i class="fa fa-minus"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="tg-invoicesheading">
-                                                        <h3><a href="#">Reason For Visit Here</a></h3>
-                                                        <span>Appointment Type Here</span>
-                                                    </div>
-                                                    <div class="tg-amout">
-                                                        <em>15.00</em>
-                                                    </div>
-                                                    <div class="tg-btnaction">
-                                                        <a class="tg-btnview" href="#" data-toggle="modal" data-target="#tg-appointmentapprove"><i class="fa fa-check"></i></a>
-                                                        <a class="tg-btndelete" href="#" data-toggle="modal" data-target="#tg-appointmentreject"><i class="fa fa-minus"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="tg-invoicesheading">
-                                                        <h3><a href="#">Reason For Visit Here</a></h3>
-                                                        <span>Appointment Type Here</span>
-                                                    </div>
-                                                    <div class="tg-amout">
-                                                        <em>10.00</em>
-                                                    </div>
-                                                    <div class="tg-btnaction">
-                                                        <a class="tg-btnview" href="#" data-toggle="modal" data-target="#tg-appointmentapprove"><i class="fa fa-check"></i></a>
-                                                        <a class="tg-btndelete" href="#" data-toggle="modal" data-target="#tg-appointmentreject"><i class="fa fa-minus"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="tg-invoicesheading">
-                                                        <h3><a href="#">Reason For Visit Here</a></h3>
-                                                        <span>Appointment Type Here</span>
-                                                    </div>
-                                                    <div class="tg-amout">
-                                                        <em>20.00</em>
+                                                        <em>    </em>
                                                     </div>
                                                     <div class="tg-btnaction">
                                                         <a class="tg-btnview" href="#" data-toggle="modal" data-target="#tg-appointmentapprove"><i class="fa fa-check"></i></a>
@@ -87,6 +50,8 @@
                                                     </div>
                                                 </li>
                                             </ul>
+                                            
+
                                         </div>
                                     </div>
                                 </div>

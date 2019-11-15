@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Healz.Controllers
 {
+    [Authorize]
     public class BlogPostsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -51,6 +53,7 @@ namespace Healz.Controllers
         }
 
         // GET: BlogPosts/Create
+        [Authorize(Roles = "Doctor,Admin")]
         public IActionResult Create()
         {
             return View();

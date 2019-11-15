@@ -31,7 +31,7 @@
                                 <h2>Latest News</h2>
                                 <img class="tg-svginject" src="~/images/sectionline.svg" alt="image description">
                             </div>
-                            @if (User.IsInRole("Admin"))
+                            @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
                             {
                                 <div>
                                     <p style="margin-top:20px;text-align:center">

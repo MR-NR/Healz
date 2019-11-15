@@ -4,13 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Healz.Models;
+using Healz.Data;
 
 namespace Healz.Controllers
 {
-  
-    [Authorize(Roles ="Doctor")]
+
+    [Authorize(Roles = "Doctor,Admin") ]
+
     public class DoctorController : Controller
     {
+        private readonly ApplicationDbContext appplicationDbContext;
+        public DoctorController(ApplicationDbContext _applicationDbContext)
+        {
+            appplicationDbContext = _applicationDbContext;
+        }
        
             public IActionResult Insights()
             {
@@ -65,6 +73,12 @@ namespace Healz.Controllers
             {
                 return View();
             }
-     
+            public IActionResult ShowAppoinments()
+            {
+            return View();
+            }
+
+        
+       
     }
 }

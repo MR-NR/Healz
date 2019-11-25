@@ -73,6 +73,7 @@ namespace Healz.Data
         
 
 
+        public DbSet<DoctorProfile> DoctorProfile { get; set; }
 
     }
 }

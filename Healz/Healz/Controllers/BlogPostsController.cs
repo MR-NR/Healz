@@ -70,7 +70,8 @@ namespace Healz.Controllers
                 if (model.ImgUrl != null)
                 {
                     string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images/post");
-                    uniqueFileName =  Guid.NewGuid().ToString() + "_" + model.ImgUrl.FileName;
+                    //uniqueFileName =  Guid.NewGuid().ToString() + "_" + model.ImgUrl.FileName;
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.ImgUrl.FileName);
                     string filePath = Path.Combine(uploadsFolder,uniqueFileName);
                     model.ImgUrl.CopyTo(new FileStream(filePath, FileMode.Create));
 

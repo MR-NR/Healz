@@ -97,6 +97,81 @@ namespace Healz.Migrations
                     b.ToTable("BlogPost");
                 });
 
+            modelBuilder.Entity("Healz.Models.DoctorProfile", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AcceptedInsurance");
+
+                    b.Property<DateTime>("AwardDate");
+
+                    b.Property<string>("AwardOccasion");
+
+                    b.Property<string>("AwardTitle");
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("DegreeName");
+
+                    b.Property<string>("Designation");
+
+                    b.Property<DateTime>("EndingDateExperience");
+
+                    b.Property<DateTime>("EndingDateStudy");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("InstituteName");
+
+                    b.Property<string>("Languages");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<DateTime>("MembershipDate");
+
+                    b.Property<string>("MembershipLocation");
+
+                    b.Property<string>("MembershipTitle");
+
+                    b.Property<string>("ProfilePhoto");
+
+                    b.Property<DateTime>("RegistrationDate");
+
+                    b.Property<string>("RegistrationID");
+
+                    b.Property<string>("RegistrationLocation");
+
+                    b.Property<string>("Specializations");
+
+                    b.Property<DateTime>("StartingDateStudy");
+
+                    b.Property<string>("SubTitle");
+
+                    b.Property<string>("Title");
+
+                    b.Property<string>("VideoIntroduction");
+
+                    b.Property<string>("facebooklink");
+
+                    b.Property<string>("googlepluslink");
+
+                    b.Property<string>("linkedin");
+
+                    b.Property<string>("rsslink");
+
+                    b.Property<DateTime>("startingDateExperience");
+
+                    b.Property<string>("twitterlink");
+
+                    b.Property<string>("youtubelink");
+
+                    b.HasKey("id");
+
+                    b.ToTable("DoctorProfile");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
